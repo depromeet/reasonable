@@ -7,29 +7,23 @@ import android.content.res.TypedArray;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
 import android.view.View;
-import android.widget.AbsListView;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.github.ksoichiro.android.observablescrollview.ObservableListView;
-import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
-import com.github.ksoichiro.android.observablescrollview.ScrollState;
 import com.github.ksoichiro.android.observablescrollview.ScrollUtils;
 import com.github.ksoichiro.android.observablescrollview.Scrollable;
+import com.nineoldandroids.view.ViewHelper;
 import com.nineoldandroids.view.ViewPropertyAnimator;
-import com.reasonable.univfestival.presenter.MainPresenter;
-import com.reasonable.univfestival.utils.ViewHelper;
+import com.reasonable.univfestival.base.FlexibleSpaceWithImageBaseFragment;
 import com.reasonable.univfestival.widget.NavigationAdapter;
 import com.reasonable.univfestival.widget.SlidingTabLayout;
 
-import java.util.ArrayList;
-
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class MainActivity extends AppCompatActivity implements ObservableScrollViewCallbacks, MainPresenter.View {
+public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
     protected static final float MAX_TEXT_SCALE_DELTA = 0.3f;
@@ -40,14 +34,14 @@ public class MainActivity extends AppCompatActivity implements ObservableScrollV
     private int mFlexibleSpaceHeight;
     private int mTabHeight;
 
-
-    private MainPresenter presenter;
-    private ObservableListView observableListView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
 
         mPagerAdapter = new NavigationAdapter(getSupportFragmentManager());
         mPager = (ViewPager) findViewById(R.id.pager);
@@ -56,23 +50,16 @@ public class MainActivity extends AppCompatActivity implements ObservableScrollV
         mTabHeight = getResources().getDimensionPixelSize(R.dimen.tab_height);
 
         TextView titleView = (TextView) findViewById(R.id.title);
-        titleView.setText(R.string.);
+        titleView.setText(R.string.intro_main);
 
         mSlidingTabLayout = (SlidingTabLayout) findViewById(R.id.sliding_tabs);
         mSlidingTabLayout.setCustomTabView(R.layout.tab_indicator, android.R.id.text1);
         mSlidingTabLayout.setSelectedIndicatorColors(getResources().getColor(R.color.colorAccent));
-        mSlidingTabLayout.setDistributeEvenly(true);
+        mSlidingTabLayout.setDistributeEvenly(false);
         mSlidingTabLayout.setViewPager(mPager);
 
         // Initialize the first Fragment's state when layout is completed.
-        ScrollUtils.addOnGlobalLayoutListener(mSlidingTabLayout, new Runnable() {
-            @Override
-            public void run() {
-                translateTab(0, false);
-            }
-        });
-
-        presenter = new MainPresenter();
+        ScrollUtils.addOnGlobalLayoutListener(mSlidingTabLayout, () -> translateTab(0, false));
     }
 
     /**
@@ -85,8 +72,8 @@ public class MainActivity extends AppCompatActivity implements ObservableScrollV
      * @param s       caller Scrollable view
      */
     public void onScrollChanged(int scrollY, Scrollable s) {
-        UniversityListFragment fragment =
-                (UniversityListFragment) mPagerAdapter.getItemAt(mPager.getCurrentItem());
+        UniversityFragment fragment =
+                (UniversityFragment) mPagerAdapter.getItemAt(mPager.getCurrentItem());
         if (fragment == null) {
             return;
         }
@@ -108,6 +95,7 @@ public class MainActivity extends AppCompatActivity implements ObservableScrollV
         }
     }
 
+
     private void translateTab(int scrollY, boolean animated) {
         int flexibleSpaceImageHeight = getResources().getDimensionPixelSize(R.dimen.flexible_space_image_height);
         int tabHeight = getResources().getDimensionPixelSize(R.dimen.tab_height);
@@ -118,23 +106,23 @@ public class MainActivity extends AppCompatActivity implements ObservableScrollV
         // Translate overlay and image
         float flexibleRange = flexibleSpaceImageHeight - getActionBarSize();
         int minOverlayTransitionY = tabHeight - overlayView.getHeight();
-        com.nineoldandroids.view.ViewHelper.setTranslationY(overlayView, ScrollUtils.getFloat(-scrollY, minOverlayTransitionY, 0));
-        com.nineoldandroids.view.ViewHelper.setTranslationY(imageView, ScrollUtils.getFloat(-scrollY / 2, minOverlayTransitionY, 0));
+        ViewHelper.setTranslationY(overlayView, ScrollUtils.getFloat(-scrollY, minOverlayTransitionY, 0));
+        ViewHelper.setTranslationY(imageView, ScrollUtils.getFloat(-scrollY / 2, minOverlayTransitionY, 0));
 
         // Change alpha of overlay
-        com.nineoldandroids.view.ViewHelper.setAlpha(overlayView, ScrollUtils.getFloat((float) scrollY / flexibleRange, 0, 1));
+        ViewHelper.setAlpha(overlayView, ScrollUtils.getFloat((float) scrollY / flexibleRange, 0, 1));
 
         // Scale title text
         float scale = 1 + ScrollUtils.getFloat((flexibleRange - scrollY - tabHeight) / flexibleRange, 0, MAX_TEXT_SCALE_DELTA);
         setPivotXToTitle(titleView);
-        com.nineoldandroids.view.ViewHelper.setPivotY(titleView, 0);
-        com.nineoldandroids.view.ViewHelper.setScaleX(titleView, scale);
-        com.nineoldandroids.view.ViewHelper.setScaleY(titleView, scale);
+        ViewHelper.setPivotY(titleView, 0);
+        ViewHelper.setScaleX(titleView, scale);
+        ViewHelper.setScaleY(titleView, scale);
 
         // Translate title text
         int maxTitleTranslationY = flexibleSpaceImageHeight - tabHeight - getActionBarSize();
         int titleTranslationY = maxTitleTranslationY - scrollY;
-        com.nineoldandroids.view.ViewHelper.setTranslationY(titleView, titleTranslationY);
+        ViewHelper.setTranslationY(titleView, titleTranslationY);
 
         // If tabs are moving, cancel it to start a new animation.
         ViewPropertyAnimator.animate(mSlidingTabLayout).cancel();
@@ -148,72 +136,10 @@ public class MainActivity extends AppCompatActivity implements ObservableScrollV
                     .start();
         } else {
             // When Fragments' scroll, translate tabs immediately (without animation).
-            com.nineoldandroids.view.ViewHelper.setTranslationY(mSlidingTabLayout, translationY);
+            ViewHelper.setTranslationY(mSlidingTabLayout, translationY);
         }
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        presenter.attach(this);
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        presenter.detach();
-    }
-
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
-    }
-
-
-    @Override
-    public void onScrollChanged(int scrollY, boolean firstScroll, boolean dragging) {
-        // Translate overlay and image
-        float flexibleRange = mFlexibleSpaceImageHeight - mActionBarSize;
-        int minOverlayTransitionY = mActionBarSize - mOverlayView.getHeight();
-        ViewHelper.setTranslationY(mOverlayView, ScrollUtils.getFloat(-scrollY, minOverlayTransitionY, 0));
-        ViewHelper.setTranslationY(mImageView, ScrollUtils.getFloat(-scrollY / 2, minOverlayTransitionY, 0));
-
-        // Translate list background
-        ViewHelper.setTranslationY(mListBackgroundView, Math.max(0, -scrollY + mFlexibleSpaceImageHeight));
-
-        // Change alpha of overlay
-        ViewHelper.setAlpha(mOverlayView, ScrollUtils.getFloat((float) scrollY / flexibleRange, 0, 1));
-
-        // Scale title text
-        float scale = 1 + ScrollUtils.getFloat((flexibleRange - scrollY) / flexibleRange, 0, MAX_TEXT_SCALE_DELTA);
-        setPivotXToTitle();
-        ViewHelper.setPivotY(mTitleView, 0);
-        ViewHelper.setScaleX(mTitleView, scale);
-        ViewHelper.setScaleY(mTitleView, scale);
-
-        // Translate title text
-        int maxTitleTranslationY = (int) (mFlexibleSpaceImageHeight - mTitleView.getHeight() * scale);
-        int titleTranslationY = maxTitleTranslationY - scrollY;
-        ViewHelper.setTranslationY(mTitleView, titleTranslationY);
-    }
-
-    @Override
-    public void onDownMotionEvent() {
-    }
-
-    @Override
-    public void onUpOrCancelMotionEvent(ScrollState scrollState) {
-    }
-
-    @Override
-    public void render() {
-
-    }
-
-    @Override
-    public void handleError(Exception e) {
-
-    }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void setPivotXToTitle(View view) {
@@ -221,18 +147,43 @@ public class MainActivity extends AppCompatActivity implements ObservableScrollV
         Configuration config = getResources().getConfiguration();
         if (Build.VERSION_CODES.JELLY_BEAN_MR1 <= Build.VERSION.SDK_INT
                 && config.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
-            com.nineoldandroids.view.ViewHelper.setPivotX(mTitleView, view.findViewById(android.R.id.content).getWidth());
+            ViewHelper.setPivotX(mTitleView, view.findViewById(android.R.id.content).getWidth());
         } else {
-            com.nineoldandroids.view.ViewHelper.setPivotX(mTitleView, 0);
+            ViewHelper.setPivotX(mTitleView, 0);
         }
     }
 
-    private ArrayList<String> getDummyData(int num) {
-        ArrayList<String> items = new ArrayList<>();
-        for (int i = 1; i <= num; i++) {
-            items.add("Item " + i);
+
+    private void propagateScroll(int scrollY) {
+        // Set scrollY for the fragments that are not created yet
+        mPagerAdapter.setScrollY(scrollY);
+
+        // Set scrollY for the active fragments
+        for (int i = 0; i < mPagerAdapter.getCount(); i++) {
+            // Skip current item
+            if (i == mPager.getCurrentItem()) {
+                continue;
+            }
+
+            // Skip destroyed or not created item
+            FlexibleSpaceWithImageBaseFragment f =
+                    (FlexibleSpaceWithImageBaseFragment) mPagerAdapter.getItemAt(i);
+            if (f == null) {
+                continue;
+            }
+
+            View view = f.getView();
+            if (view == null) {
+                continue;
+            }
+            f.setScrollY(scrollY, mFlexibleSpaceHeight);
+            f.updateFlexibleSpace(scrollY);
         }
-        return items;
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 
     private int getActionBarSize() {

@@ -59,7 +59,7 @@
             android:background="@android:color/transparent" />
     </LinearLayout>
 
-    <com.google.samples.apps.iosched.ui.widget.SlidingTabLayout
+    <com.reasonable.univfestival.widget.SlidingTabLayout
         android:id="@+id/sliding_tabs"
         android:layout_width="match_parent"
         android:layout_height="@dimen/tab_height"

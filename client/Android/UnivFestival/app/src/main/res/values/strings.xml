@@ -5,7 +5,4 @@
     <string name="intro_main">대학축제를 손쉽게 찾아보세요.</string>
     <string name="intro_dont">더이상 축제 정보 찾아 페이스북 헤메지마세요.</string>
     <string name="intro_do">손쉽게 검색하고, 손쉽게 비교하세요.</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
