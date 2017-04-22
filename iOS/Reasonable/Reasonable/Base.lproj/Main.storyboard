@@ -131,7 +131,14 @@
                             <constraint firstAttribute="trailing" secondItem="QsH-FT-xx6" secondAttribute="trailing" id="jyO-we-HUt"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="UnivFEST" id="zub-Pd-lcb"/>
+                    <navigationItem key="navigationItem" title="UnivFEST" id="zub-Pd-lcb">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="4kB-fm-tgI">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="didTapSearchButton:" destination="BYZ-38-t0r" id="jKz-k1-eIw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="univCollectionView" destination="QsH-FT-xx6" id="tEt-zX-sko"/>
                     </connections>

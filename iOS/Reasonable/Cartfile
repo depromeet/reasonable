@@ -1,2 +1,3 @@
 github "Alamofire/Alamofire" ~> 4.3
 github "SwiftyJSON/SwiftyJSON"
+github "devxoul/Toaster" ~> 2.0

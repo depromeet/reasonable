@@ -10,4 +10,21 @@ import UIKit
 
 class UnivCell: UICollectionViewCell {
     
-}
+    @IBOutlet weak var univLogoImgView: UIImageView!
+    
+    
+    private func setupView() {
+        univLogoImgView.layer.cornerRadius = 8
+        univLogoImgView.backgroundColor = .cyan
+    }
+
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupView()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    }

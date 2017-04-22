@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-
+import Toaster
 
 class ViewController: UIViewController {
     
@@ -23,17 +23,24 @@ class ViewController: UIViewController {
     }
     
     
+    @IBAction func didTapSearchButton(_ sender: UIBarButtonItem) {
+        let toast = Toast(text: "보다 나은 서비스를 위해 개발중입니다.", duration: Delay.short)
+        toast.show()
+    }
+    
+    
+    
 }
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 34
+        return 9
     }
     
     // make a cell for each cell index path
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         // get a reference to our storyboard cell
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "univCell", for: indexPath as IndexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "univCell", for: indexPath as IndexPath) 
         
         
         return cell
@@ -67,4 +74,8 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource,U
         controller?.modalPresentationStyle = .overCurrentContext
         present(controller!, animated: true, completion: nil)
     }
+    
+    
+    
+    
 }
