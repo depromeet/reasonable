@@ -23,7 +23,7 @@ class InfoFestivalVC: UIViewController {
         button.setTitle("닫기", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .black
-        
+        button.addTarget(self, action: #selector(dismissVC), for: .touchUpInside)
         return button
     }()
     
@@ -42,15 +42,10 @@ class InfoFestivalVC: UIViewController {
         dismissButton.frame = CGRect(x: 0, y: vHeight, width: vWidth, height: -44)
         
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    @objc private func dismissVC() {
+        print("창닫자")
+        dismiss(animated: true, completion: nil)
     }
-    */
 
 }
