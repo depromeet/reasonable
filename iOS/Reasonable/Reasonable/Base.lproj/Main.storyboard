@@ -1,26 +1,185 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dbd-Mx-2rr">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--UnivFEST-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Reasonable" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QsH-FT-xx6">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="sUC-mB-lpg">
+                                    <size key="itemSize" width="130" height="172"/>
+                                    <size key="headerReferenceSize" width="50" height="201"/>
+                                    <size key="footerReferenceSize" width="50" height="66"/>
+                                    <inset key="sectionInset" minX="12" minY="0.0" maxX="12" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="univCell" id="CLM-Oe-1a9">
+                                        <rect key="frame" x="12" y="201" width="130" height="172"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="130" height="172"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="한양대학교" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgr-o8-HEV">
+                                                    <rect key="frame" x="39" y="130" width="52" height="15"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017.5.13~17" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2G4-1J-eQT">
+                                                    <rect key="frame" x="35" y="151" width="60" height="12"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="10"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoUniv.png" translatesAutoresizingMaskIntoConstraints="NO" id="84K-ET-i26">
+                                                    <rect key="frame" x="4" y="4" width="122" height="122"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="84K-ET-i26" secondAttribute="height" multiplier="1:1" id="H6Z-eq-L7C"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="84K-ET-i26" firstAttribute="top" secondItem="CLM-Oe-1a9" secondAttribute="top" constant="4" id="5lH-Eq-esL"/>
+                                            <constraint firstAttribute="trailing" secondItem="84K-ET-i26" secondAttribute="trailing" constant="4" id="IUk-d5-Npt"/>
+                                            <constraint firstItem="fgr-o8-HEV" firstAttribute="top" secondItem="84K-ET-i26" secondAttribute="bottom" constant="4" id="MKK-Sv-yJ2"/>
+                                            <constraint firstItem="84K-ET-i26" firstAttribute="leading" secondItem="CLM-Oe-1a9" secondAttribute="leading" constant="4" id="OeE-OA-oen"/>
+                                            <constraint firstItem="2G4-1J-eQT" firstAttribute="top" secondItem="fgr-o8-HEV" secondAttribute="bottom" constant="6.5" id="hO1-gV-3A6"/>
+                                            <constraint firstItem="fgr-o8-HEV" firstAttribute="centerX" secondItem="2G4-1J-eQT" secondAttribute="centerX" id="rNf-P1-3Ie"/>
+                                            <constraint firstItem="2G4-1J-eQT" firstAttribute="centerX" secondItem="CLM-Oe-1a9" secondAttribute="centerX" id="z3W-1r-BwI"/>
+                                        </constraints>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="univHeader" id="4QL-qM-8jd">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="201"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="대학교 리스트" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mzQ-ad-Hbo">
+                                            <rect key="frame" x="161" y="172" width="93" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="intro.png" translatesAutoresizingMaskIntoConstraints="NO" id="jyK-M2-Y8U">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="173"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="jyK-M2-Y8U" secondAttribute="height" multiplier="367:153" id="Kqi-rt-pUx"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="대학축제를 손쉽게 찾아보세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jG8-G8-MqJ">
+                                            <rect key="frame" x="107" y="76" width="200" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
+                                            <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="jG8-G8-MqJ" firstAttribute="centerY" secondItem="jyK-M2-Y8U" secondAttribute="centerY" id="Nrr-le-Kyb"/>
+                                        <constraint firstAttribute="trailing" secondItem="jyK-M2-Y8U" secondAttribute="trailing" id="PAu-kv-CAk"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="mzQ-ad-Hbo" secondAttribute="bottom" id="R8t-kQ-27J"/>
+                                        <constraint firstItem="jG8-G8-MqJ" firstAttribute="centerX" secondItem="jyK-M2-Y8U" secondAttribute="centerX" id="boo-dB-0DI"/>
+                                        <constraint firstItem="jyK-M2-Y8U" firstAttribute="top" secondItem="4QL-qM-8jd" secondAttribute="top" id="dbP-at-akZ"/>
+                                        <constraint firstItem="mzQ-ad-Hbo" firstAttribute="centerX" secondItem="4QL-qM-8jd" secondAttribute="centerX" id="epl-Vk-72e"/>
+                                        <constraint firstItem="jyK-M2-Y8U" firstAttribute="leading" secondItem="4QL-qM-8jd" secondAttribute="leading" id="tUd-QE-ARO"/>
+                                    </constraints>
+                                </collectionReusableView>
+                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="univFooter" id="2a1-C7-zH3">
+                                    <rect key="frame" x="0.0" y="373" width="320" height="66"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright @ 2017 by Reasonable of Depromeet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXi-zX-tuo">
+                                            <rect key="frame" x="66.5" y="48" width="187.5" height="10"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="KXi-zX-tuo" firstAttribute="centerX" secondItem="2a1-C7-zH3" secondAttribute="centerX" id="4Ju-fx-e0r"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="KXi-zX-tuo" secondAttribute="bottom" id="NW3-1O-ZEn"/>
+                                    </constraints>
+                                </collectionReusableView>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QsH-FT-xx6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="HBd-lW-8t6"/>
+                            <constraint firstItem="QsH-FT-xx6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="eB0-jN-h6U"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="QsH-FT-xx6" secondAttribute="bottom" id="gwH-Kt-LGQ"/>
+                            <constraint firstAttribute="trailing" secondItem="QsH-FT-xx6" secondAttribute="trailing" id="jyO-we-HUt"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="UnivFEST" id="zub-Pd-lcb"/>
+                    <connections>
+                        <outlet property="univCollectionView" destination="QsH-FT-xx6" id="tEt-zX-sko"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1018.125" y="32.74647887323944"/>
+        </scene>
+        <!--Info FestivalVC-->
+        <scene sceneID="O8o-d2-8zO">
+            <objects>
+                <viewController storyboardIdentifier="infoFestivalVC" id="rUO-7b-2n4" customClass="InfoFestivalVC" customModule="Reasonable" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cfJ-bV-b4W"/>
+                        <viewControllerLayoutGuide type="bottom" id="HRK-vP-elQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zzf-XU-ONI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ShF-RB-xxA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1736.25" y="31.690140845070424"/>
+        </scene>
+        <!--fdf-->
+        <scene sceneID="vi4-vP-3QF">
+            <objects>
+                <navigationController title="fdf" automaticallyAdjustsScrollViewInsets="NO" id="dbd-Mx-2rr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="tMk-bd-2mn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="KWO-gt-KIf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yTC-Qm-ckG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="22.5" y="33.802816901408448"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="intro.png" width="1920" height="780"/>
+        <image name="logoUniv.png" width="272" height="244"/>
+    </resources>
 </document>

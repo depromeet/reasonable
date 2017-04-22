@@ -16,6 +16,11 @@
 		EFB6EA311EAB1D1A00C137D3 /* ReasonableUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB6EA301EAB1D1A00C137D3 /* ReasonableUITests.swift */; };
 		EFB6EA411EAB25E100C137D3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB6EA401EAB25E100C137D3 /* Alamofire.framework */; };
 		EFB6EA431EAB260C00C137D3 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB6EA421EAB260C00C137D3 /* SwiftyJSON.framework */; };
+		EFB6EA451EAB395B00C137D3 /* intro.png in Resources */ = {isa = PBXBuildFile; fileRef = EFB6EA441EAB395B00C137D3 /* intro.png */; };
+		EFB6EA481EAB40EB00C137D3 /* UnivCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB6EA471EAB40EB00C137D3 /* UnivCell.swift */; };
+		EFB6EA4A1EAB4D8000C137D3 /* logoUniv.png in Resources */ = {isa = PBXBuildFile; fileRef = EFB6EA491EAB4D8000C137D3 /* logoUniv.png */; };
+		EFB6EA4C1EAB6E4200C137D3 /* posterFestival.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EFB6EA4B1EAB6E4200C137D3 /* posterFestival.jpg */; };
+		EFB6EA4E1EAB712600C137D3 /* InfoFestivalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB6EA4D1EAB712600C137D3 /* InfoFestivalVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,11 @@
 		EFB6EA321EAB1D1A00C137D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFB6EA401EAB25E100C137D3 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		EFB6EA421EAB260C00C137D3 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		EFB6EA441EAB395B00C137D3 /* intro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro.png; sourceTree = "<group>"; };
+		EFB6EA471EAB40EB00C137D3 /* UnivCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnivCell.swift; sourceTree = "<group>"; };
+		EFB6EA491EAB4D8000C137D3 /* logoUniv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoUniv.png; sourceTree = "<group>"; };
+		EFB6EA4B1EAB6E4200C137D3 /* posterFestival.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = posterFestival.jpg; sourceTree = "<group>"; };
+		EFB6EA4D1EAB712600C137D3 /* InfoFestivalVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoFestivalVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,10 +116,12 @@
 			children = (
 				EFB6EA101EAB1D1A00C137D3 /* AppDelegate.swift */,
 				EFB6EA121EAB1D1A00C137D3 /* ViewController.swift */,
+				EFB6EA471EAB40EB00C137D3 /* UnivCell.swift */,
 				EFB6EA141EAB1D1A00C137D3 /* Main.storyboard */,
-				EFB6EA171EAB1D1A00C137D3 /* Assets.xcassets */,
+				EFB6EA4D1EAB712600C137D3 /* InfoFestivalVC.swift */,
 				EFB6EA191EAB1D1A00C137D3 /* LaunchScreen.storyboard */,
 				EFB6EA1C1EAB1D1A00C137D3 /* Info.plist */,
+				EFB6EA461EAB396500C137D3 /* Resources */,
 			);
 			path = Reasonable;
 			sourceTree = "<group>";
@@ -139,6 +151,17 @@
 				EFB6EA401EAB25E100C137D3 /* Alamofire.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EFB6EA461EAB396500C137D3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EFB6EA491EAB4D8000C137D3 /* logoUniv.png */,
+				EFB6EA441EAB395B00C137D3 /* intro.png */,
+				EFB6EA4B1EAB6E4200C137D3 /* posterFestival.jpg */,
+				EFB6EA171EAB1D1A00C137D3 /* Assets.xcassets */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +275,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFB6EA451EAB395B00C137D3 /* intro.png in Resources */,
+				EFB6EA4A1EAB4D8000C137D3 /* logoUniv.png in Resources */,
+				EFB6EA4C1EAB6E4200C137D3 /* posterFestival.jpg in Resources */,
 				EFB6EA1B1EAB1D1A00C137D3 /* LaunchScreen.storyboard in Resources */,
 				EFB6EA181EAB1D1A00C137D3 /* Assets.xcassets in Resources */,
 				EFB6EA161EAB1D1A00C137D3 /* Main.storyboard in Resources */,
@@ -298,6 +324,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFB6EA131EAB1D1A00C137D3 /* ViewController.swift in Sources */,
+				EFB6EA481EAB40EB00C137D3 /* UnivCell.swift in Sources */,
+				EFB6EA4E1EAB712600C137D3 /* InfoFestivalVC.swift in Sources */,
 				EFB6EA111EAB1D1A00C137D3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
