@@ -6,6 +6,7 @@ import com.facebook.stetho.Stetho;
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.orm.SugarContext;
 import com.reasonable.univfestival.BuildConfig;
+import com.reasonable.univfestival.R;
 import com.reasonable.univfestival.api.UnivFestivalAPI;
 import com.reasonable.univfestival.utils.Constants;
 
@@ -14,6 +15,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 /**
  * Created by jkimab on 2017. 4. 22..
@@ -25,6 +27,11 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                        .setDefaultFontPath("fonts/Roboto-RobotoRegular.ttf")
+                        .setFontAttrId(R.attr.fontPath)
+                        .build());
+
         SugarContext.init(this);
 
         OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder();

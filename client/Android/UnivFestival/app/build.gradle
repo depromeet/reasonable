@@ -70,4 +70,15 @@ dependencies {
 
     // ORM
     compile 'com.github.satyan:sugar:1.4'
+
+    // Font
+    compile 'uk.co.chrisjenx:calligraphy:2.2.0'
+
+    // Recycler View
+    compile 'com.github.ksoichiro:android-observablescrollview:1.6.0'
+
+    // View Helper
+    compile 'com.nineoldandroids:library:2.4.0'
+
+
 }
