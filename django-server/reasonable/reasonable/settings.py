@@ -126,7 +126,7 @@ USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-
+STATIC_ROOT = '/home/ubuntu/reasonable/django-server/reasonable/static/'
 STATIC_URL = '/static/'
 
 # djang-rest-framwork
