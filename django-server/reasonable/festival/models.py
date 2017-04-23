@@ -22,8 +22,8 @@ class Festival(models.Model):
 
 
 class FestivalUnit(models.Model):
-    start_date = models.DateTimeField(auto_now_add=True, null=True)
-    end_date = models.DateTimeField(auto_now=True, null=True)
+    start_date = models.DateTimeField(default=timezone.now, blank=True)
+    end_date = models.DateTimeField(default=timezone.now, blank=True)
 
     # relationships
 
