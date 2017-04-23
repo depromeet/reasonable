@@ -1,3 +1,4 @@
+from django.utils import timezone
 from django.db import models
 from university.models import University
 from artist.models import Artist
@@ -7,8 +8,8 @@ from artist.models import Artist
 class Festival(models.Model):
 
     name = models.CharField(max_length=250, default='2017 축제')
-    start_date = models.DateTimeField(auto_now_add=True)
-    end_date = models.DateTimeField(auto_now=True)
+    start_date = models.DateTimeField(default=timezone.now, blank=True)
+    end_date = models.DateTimeField(default=timezone.now, blank=True)
     poster_link = models.CharField(max_length=250, default='#')
 
     # relationships
