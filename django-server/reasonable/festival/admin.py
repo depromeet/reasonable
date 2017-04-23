@@ -5,8 +5,8 @@ from .models import Festival, FestivalUnit
 # Register your models here.
 
 class FestivalAdmin(admin.ModelAdmin):
-    list_display = ('name', 'university', 'start_date', 'end_date')
-    list_filter = ('name', 'university', 'start_date', 'end_date')
+    list_display = ('id', 'name', 'university', 'start_date', 'end_date')
+    list_filter = ('id', 'name', 'university', 'start_date', 'end_date')
     search_fields = ('university',)
 
 

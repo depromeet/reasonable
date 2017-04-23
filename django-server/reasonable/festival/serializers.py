@@ -1,13 +1,12 @@
 from rest_framework import serializers
 from .models import Festival, FestivalUnit
 
+
 class FestivalUnitSerializer(serializers.ModelSerializer):
     class Meta:
         model = FestivalUnit
-        fields = ['start_date', 'end_date', 'artist']
-        # fields = '__all__'
-
-
+        # fields = ['start_date', 'end_date', 'artist', 'festival']
+        fields = '__all__'
 
 
 class FestivalSerializer(serializers.ModelSerializer):

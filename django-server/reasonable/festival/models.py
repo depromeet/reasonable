@@ -6,7 +6,7 @@ from artist.models import Artist
 # Create your models here.
 class Festival(models.Model):
 
-    name = models.CharField(max_length=250, default='2017축제')
+    name = models.CharField(max_length=250, default='2017 축제')
     start_date = models.DateTimeField(auto_now_add=True)
     end_date = models.DateTimeField(auto_now=True)
     poster_link = models.CharField(max_length=250, default='#')
