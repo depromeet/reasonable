@@ -1,6 +1,7 @@
 package com.reasonable.univfestival.api;
 
 import com.reasonable.univfestival.model.Festival;
+import com.reasonable.univfestival.model.University;
 
 import java.util.List;
 
@@ -15,4 +16,11 @@ import rx.Observable;
 public interface UnivFestivalAPI {
     @GET("festival/list/{page}")
     Observable<List<Festival>> listFestival(@Path("page") int pageCount);
+
+    @GET("university/")
+    Observable<List<University>> getUniversityList();
+
+
+
+
 }

@@ -75,10 +75,6 @@ dependencies {
     compile 'uk.co.chrisjenx:calligraphy:2.2.0'
 
     // Recycler View
-    compile 'com.github.ksoichiro:android-observablescrollview:1.6.0'
-
-    // View Helper
-    compile 'com.nineoldandroids:library:2.4.0'
-
+    compile 'com.github.kanytu:android-parallax-recyclerview:v1.7'
 
 }
