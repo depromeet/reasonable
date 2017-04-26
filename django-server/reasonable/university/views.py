@@ -5,9 +5,23 @@ from rest_framework.views import APIView
 from rest_framework import status as rest_status
 
 from .models import University
-from .serializers import UniversitySerializer
+from .serializers import UniversitySerializer, UniversityListSerializer
 from .exceptions import RequestDataError
 
+# Pagination
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
+
+@permission_classes((permissions.AllowAny,))
+class UniversityList(APIView):
+    """
+    Get University list
+    """
+    def get(self, request):
+        university = University.objects.all()
+        serializer = UniversitySerializer(university)
+        result = serializer.data
+        return Response(result)
 
 @permission_classes((permissions.AllowAny,))
 class UniversityDetail(APIView):
