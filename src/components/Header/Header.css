@@ -9,18 +9,14 @@
 
 @import '../variables.css';
 
-:root {
-  --brand-color: #61dafb;
-}
-
 .root {
-  background: #373277;
-  color: #fff;
+	height: 100px;
+	background-color: #222222;
 }
 
 .container {
+  height: 100px;
   margin: 0 auto;
-  padding: 20px 0;
   max-width: var(--max-content-width);
 }
 
@@ -51,4 +47,7 @@
   color: rgba(255, 255, 255, 0.5);
   font-size: 1.25em;
   margin: 0;
+}
+.logo_img {
+  margin-top: 35px;
 }

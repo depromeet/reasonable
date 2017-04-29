@@ -25,17 +25,14 @@ class Home extends React.Component {
     return (
       <div className={s.root}>
         <div className={s.container}>
-          <h1>React.js News</h1>
-          {this.props.news.map(item => (
-            <article key={item.link} className={s.newsItem}>
-              <h1 className={s.newsTitle}><a href={item.link}>{item.title}</a></h1>
-              <div
-                className={s.newsDesc}
-                // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={{ __html: item.content }}
-              />
-            </article>
-          ))}
+          <div className={s.module+" "+s.mid}>
+            <h2>대학축제를 손쉽게 찾아보세요.</h2>
+            <p>
+              더 이상 축제 정보 찾아 페이스북 헤매지 마세요.
+              <br />
+              손쉽게 검색하고, 손쉽게 비교하세요.
+            </p>
+          </div>
         </div>
       </div>
     );

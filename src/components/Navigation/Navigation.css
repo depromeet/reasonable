@@ -6,10 +6,12 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE.txt file in the root directory of this source tree.
  */
-
+* {
+  box-sizing: border-box;
+}
 .root {
+  margin-top: 26px;
   float: right;
-  margin: 6px 0 0;
 }
 
 .link {
@@ -43,4 +45,50 @@
 
 .spacer {
   color: rgba(255, 255, 255, 0.3);
+}
+/*codepen*/
+
+.search_container {
+  display: block;
+  margin: 0 auto;
+  background-color: #222222;
+}
+
+.search_bar {
+  color: #fff;
+  padding: 0 20px;
+  border-radius: 25px;
+  margin: 0 auto;
+  font-size: 1rem;
+  outline: none;
+  background-color: #222222;
+  width: 200px;
+	height: 48px;
+	opacity: 0.76;
+	border-radius: 70px;
+	border: solid 1px #848484;
+}
+.search_bar:focus {
+  border: 1px solid #fff;
+  transition: 0.35s ease;
+  color: #008ABF;
+}
+.search_bar:focus::-webkit-input-placeholder {
+  transition: opacity 0.45s ease;
+  opacity: 0;
+}
+.search_bar:focus::-moz-placeholder {
+  transition: opacity 0.45s ease;
+  opacity: 0;
+}
+.search_bar:focus:-ms-placeholder {
+  transition: opacity 0.45s ease;
+  opacity: 0;
+}
+
+.search_icon {
+  width: 25px;
+  height: 25px;
+  position: relative;
+  left: -45px;
 }

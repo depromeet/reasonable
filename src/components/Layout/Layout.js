@@ -22,9 +22,12 @@ class Layout extends React.Component {
   };
 
   render() {
+    const customStyleObject = {
+      zIndex: 998,
+    };
     return (
       <StickyContainer>
-        <Sticky>
+        <Sticky stickyStyle={customStyleObject}>
           <Header />
         </Sticky>
         {this.props.children}
