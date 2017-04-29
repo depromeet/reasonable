@@ -12,8 +12,7 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Header.css';
 import Link from '../Link';
 import Navigation from '../Navigation';
-import logoUrl from './logo-small.png';
-import logoUrl2x from './logo-small.png';
+import logoUrl from './logo.png';
 
 class Header extends React.Component {
   render() {
@@ -21,7 +20,7 @@ class Header extends React.Component {
       <div className={s.root}>
         <div className={s.container}>
           <Navigation />
-          <img className={s.logo_img} src={logoUrl} srcSet={`${logoUrl2x} 2x`} width="200" height="30" alt="React" />
+          <img className={s.logo_img} src={logoUrl} width="200" height="30" alt="React" />
         </div>
       </div>
     );

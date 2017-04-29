@@ -31,6 +31,7 @@ class Layout extends React.Component {
           <Header />
         </Sticky>
         {this.props.children}
+        <Footer />
       </StickyContainer>
     );
   }

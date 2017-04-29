@@ -12,36 +12,28 @@
 .root {
   background: #333;
   color: #fff;
+  height: 220px;
 }
 
 .container {
   margin: 0 auto;
-  padding: 20px 15px;
   max-width: var(--max-content-width);
   text-align: center;
+  position: relative;
+  height: 220px;
 }
-
+.icons {
+  position: absolute;
+  top: 64px;
+  width: 100%;
+}
+.right_margin {
+  margin-right: 55px;
+}
 .text {
+  margin: 0;
   color: rgba(255, 255, 255, 0.5);
-}
-
-.spacer {
-  color: rgba(255, 255, 255, 0.3);
-}
-
-.text,
-.link {
-  padding: 2px 5px;
-  font-size: 1em;
-}
-
-.link,
-.link:active,
-.link:visited {
-  color: rgba(255, 255, 255, 0.6);
-  text-decoration: none;
-}
-
-.link:hover {
-  color: rgba(255, 255, 255, 1);
+  width: 100%;
+  position: absolute;
+  top: 137px;
 }
