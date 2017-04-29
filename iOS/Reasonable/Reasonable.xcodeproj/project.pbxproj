@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EFB356071EB45F8600D34099 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB356061EB45F8600D34099 /* Constants.swift */; };
+		EFB3560A1EB460EC00D34099 /* Festival.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB356091EB460EC00D34099 /* Festival.swift */; };
+		EFB3560C1EB4698300D34099 /* AlamofireManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB3560B1EB4698300D34099 /* AlamofireManager.swift */; };
+		EFB356111EB47DF700D34099 /* FestivalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB356101EB47DF700D34099 /* FestivalCell.swift */; };
 		EFB6EA111EAB1D1A00C137D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB6EA101EAB1D1A00C137D3 /* AppDelegate.swift */; };
 		EFB6EA131EAB1D1A00C137D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB6EA121EAB1D1A00C137D3 /* ViewController.swift */; };
 		EFB6EA161EAB1D1A00C137D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFB6EA141EAB1D1A00C137D3 /* Main.storyboard */; };
@@ -42,6 +46,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EFB356061EB45F8600D34099 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		EFB356091EB460EC00D34099 /* Festival.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Festival.swift; sourceTree = "<group>"; };
+		EFB3560B1EB4698300D34099 /* AlamofireManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireManager.swift; sourceTree = "<group>"; };
+		EFB356101EB47DF700D34099 /* FestivalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FestivalCell.swift; sourceTree = "<group>"; };
 		EFB6EA0D1EAB1D1A00C137D3 /* Reasonable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reasonable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFB6EA101EAB1D1A00C137D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFB6EA121EAB1D1A00C137D3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -93,9 +101,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EFB356081EB4605700D34099 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EFB356091EB460EC00D34099 /* Festival.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		EFB3560D1EB47C9400D34099 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EFB6EA471EAB40EB00C137D3 /* UnivCell.swift */,
+				EFB356101EB47DF700D34099 /* FestivalCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		EFB6EA041EAB1D1A00C137D3 = {
 			isa = PBXGroup;
 			children = (
+				EFB3560B1EB4698300D34099 /* AlamofireManager.swift */,
 				EFB6EA0F1EAB1D1A00C137D3 /* Reasonable */,
 				EFB6EA241EAB1D1A00C137D3 /* ReasonableTests */,
 				EFB6EA2F1EAB1D1A00C137D3 /* ReasonableUITests */,
@@ -117,13 +143,15 @@
 		EFB6EA0F1EAB1D1A00C137D3 /* Reasonable */ = {
 			isa = PBXGroup;
 			children = (
+				EFB3560D1EB47C9400D34099 /* View */,
+				EFB356081EB4605700D34099 /* Model */,
 				EFB6EA4F1EAB75F700C137D3 /* Controller */,
 				EFB6EA101EAB1D1A00C137D3 /* AppDelegate.swift */,
-				EFB6EA471EAB40EB00C137D3 /* UnivCell.swift */,
 				EFB6EA141EAB1D1A00C137D3 /* Main.storyboard */,
 				EFB6EA191EAB1D1A00C137D3 /* LaunchScreen.storyboard */,
 				EFB6EA1C1EAB1D1A00C137D3 /* Info.plist */,
 				EFB6EA461EAB396500C137D3 /* Resources */,
+				EFB356061EB45F8600D34099 /* Constants.swift */,
 			);
 			path = Reasonable;
 			sourceTree = "<group>";
@@ -336,10 +364,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFB356071EB45F8600D34099 /* Constants.swift in Sources */,
 				EFB6EA131EAB1D1A00C137D3 /* ViewController.swift in Sources */,
 				EFB6EA481EAB40EB00C137D3 /* UnivCell.swift in Sources */,
+				EFB356111EB47DF700D34099 /* FestivalCell.swift in Sources */,
 				EFB6EA4E1EAB712600C137D3 /* InfoFestivalVC.swift in Sources */,
 				EFB6EA111EAB1D1A00C137D3 /* AppDelegate.swift in Sources */,
+				EFB3560C1EB4698300D34099 /* AlamofireManager.swift in Sources */,
+				EFB3560A1EB460EC00D34099 /* Festival.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,6 +529,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Reasonable/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.depromeet.Reasonable;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -514,6 +547,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Reasonable/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.depromeet.Reasonable;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -598,6 +632,7 @@
 				EFB6EA371EAB1D1A00C137D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EFB6EA381EAB1D1A00C137D3 /* Build configuration list for PBXNativeTarget "ReasonableTests" */ = {
 			isa = XCConfigurationList;
@@ -606,6 +641,7 @@
 				EFB6EA3A1EAB1D1A00C137D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EFB6EA3B1EAB1D1A00C137D3 /* Build configuration list for PBXNativeTarget "ReasonableUITests" */ = {
 			isa = XCConfigurationList;
@@ -614,6 +650,7 @@
 				EFB6EA3D1EAB1D1A00C137D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

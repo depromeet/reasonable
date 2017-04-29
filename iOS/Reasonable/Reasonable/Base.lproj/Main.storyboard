@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--UnivFEST-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Reasonable" customModuleProvider="target" sceneMemberID="viewController">
@@ -32,63 +32,19 @@
                                     <size key="footerReferenceSize" width="50" height="66"/>
                                     <inset key="sectionInset" minX="12" minY="0.0" maxX="12" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="univCell" id="CLM-Oe-1a9">
-                                        <rect key="frame" x="12" y="201" width="130" height="172"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="130" height="172"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="한양대학교" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgr-o8-HEV">
-                                                    <rect key="frame" x="39" y="130" width="52" height="15"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017.5.13~17" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2G4-1J-eQT">
-                                                    <rect key="frame" x="35" y="151" width="60" height="12"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="10"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoUniv.png" translatesAutoresizingMaskIntoConstraints="NO" id="84K-ET-i26">
-                                                    <rect key="frame" x="4" y="4" width="122" height="122"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="84K-ET-i26" secondAttribute="height" multiplier="1:1" id="H6Z-eq-L7C"/>
-                                                    </constraints>
-                                                </imageView>
-                                            </subviews>
-                                        </view>
-                                        <constraints>
-                                            <constraint firstItem="84K-ET-i26" firstAttribute="top" secondItem="CLM-Oe-1a9" secondAttribute="top" constant="4" id="5lH-Eq-esL"/>
-                                            <constraint firstAttribute="trailing" secondItem="84K-ET-i26" secondAttribute="trailing" constant="4" id="IUk-d5-Npt"/>
-                                            <constraint firstItem="fgr-o8-HEV" firstAttribute="top" secondItem="84K-ET-i26" secondAttribute="bottom" constant="4" id="MKK-Sv-yJ2"/>
-                                            <constraint firstItem="84K-ET-i26" firstAttribute="leading" secondItem="CLM-Oe-1a9" secondAttribute="leading" constant="4" id="OeE-OA-oen"/>
-                                            <constraint firstItem="2G4-1J-eQT" firstAttribute="top" secondItem="fgr-o8-HEV" secondAttribute="bottom" constant="6.5" id="hO1-gV-3A6"/>
-                                            <constraint firstItem="fgr-o8-HEV" firstAttribute="centerX" secondItem="2G4-1J-eQT" secondAttribute="centerX" id="rNf-P1-3Ie"/>
-                                            <constraint firstItem="2G4-1J-eQT" firstAttribute="centerX" secondItem="CLM-Oe-1a9" secondAttribute="centerX" id="z3W-1r-BwI"/>
-                                        </constraints>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="univHeader" id="4QL-qM-8jd">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="201"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="대학교 리스트" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mzQ-ad-Hbo">
-                                            <rect key="frame" x="161" y="172" width="93" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="intro.png" translatesAutoresizingMaskIntoConstraints="NO" id="jyK-M2-Y8U">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="173"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="133.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="jyK-M2-Y8U" secondAttribute="height" multiplier="367:153" id="Kqi-rt-pUx"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="대학축제를 손쉽게 찾아보세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jG8-G8-MqJ">
-                                            <rect key="frame" x="107" y="76" width="200" height="21"/>
+                                            <rect key="frame" x="60" y="56" width="200" height="21"/>
                                             <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
                                             <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -97,15 +53,13 @@
                                     <constraints>
                                         <constraint firstItem="jG8-G8-MqJ" firstAttribute="centerY" secondItem="jyK-M2-Y8U" secondAttribute="centerY" id="Nrr-le-Kyb"/>
                                         <constraint firstAttribute="trailing" secondItem="jyK-M2-Y8U" secondAttribute="trailing" id="PAu-kv-CAk"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="mzQ-ad-Hbo" secondAttribute="bottom" id="R8t-kQ-27J"/>
                                         <constraint firstItem="jG8-G8-MqJ" firstAttribute="centerX" secondItem="jyK-M2-Y8U" secondAttribute="centerX" id="boo-dB-0DI"/>
                                         <constraint firstItem="jyK-M2-Y8U" firstAttribute="top" secondItem="4QL-qM-8jd" secondAttribute="top" id="dbP-at-akZ"/>
-                                        <constraint firstItem="mzQ-ad-Hbo" firstAttribute="centerX" secondItem="4QL-qM-8jd" secondAttribute="centerX" id="epl-Vk-72e"/>
                                         <constraint firstItem="jyK-M2-Y8U" firstAttribute="leading" secondItem="4QL-qM-8jd" secondAttribute="leading" id="tUd-QE-ARO"/>
                                     </constraints>
                                 </collectionReusableView>
                                 <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="univFooter" id="2a1-C7-zH3">
-                                    <rect key="frame" x="0.0" y="373" width="320" height="66"/>
+                                    <rect key="frame" x="0.0" y="201" width="320" height="66"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright @ 2017 by Reasonable of Depromeet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXi-zX-tuo">
@@ -131,7 +85,7 @@
                             <constraint firstAttribute="trailing" secondItem="QsH-FT-xx6" secondAttribute="trailing" id="jyO-we-HUt"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="UnivFEST" id="zub-Pd-lcb">
+                    <navigationItem key="navigationItem" id="zub-Pd-lcb">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="4kB-fm-tgI">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -140,7 +94,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="univCollectionView" destination="QsH-FT-xx6" id="tEt-zX-sko"/>
+                        <outlet property="festivalCollectionView" destination="QsH-FT-xx6" id="aAe-in-CFt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -187,6 +141,5 @@
     </scenes>
     <resources>
         <image name="intro.png" width="1920" height="780"/>
-        <image name="logoUniv.png" width="272" height="244"/>
     </resources>
 </document>

@@ -13,13 +13,20 @@ import Toaster
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var univCollectionView: UICollectionView!
+    @IBOutlet weak var festivalCollectionView: UICollectionView!
     
+    var festivals = [Festival]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        univCollectionView.delegate = self
-        univCollectionView.dataSource = self
+        
+        setNavigationTitleImage(named: "appLogo")
+
+        
+        festivalCollectionView.delegate = self
+        festivalCollectionView.dataSource = self
+        festivalCollectionView.register(FestivalCell.self, forCellWithReuseIdentifier: "festivalCell")
+        getListFestival(page: 1)
     }
     
     
@@ -28,20 +35,77 @@ class ViewController: UIViewController {
         toast.show()
     }
     
+    private func getListFestival(page: Int) {
+        let pageString = String(page)
+        let baseURL = "\(Constants.serverAddress)/festival/list/\(pageString)"
+        
+        
+        Alamofire.request(baseURL, method: .get).responseJSON { response in
+            
+//                        print("------------getListFestival 결과")
+//                        print(response.request)  // original URL request
+//                        print(response.response) // HTTP URL response
+//                        print(response.data)     // server data
+//                        print(response.result)   // result of response serialization
+//                        if let JSON = response.result.value {
+//                            print("JSON: \(JSON)")
+//                        }
+//                        print("------------getListFestival 결과 끝")
+            
+            let statusCode = (response.response?.statusCode)!
+            
+            guard let resultData = response.result.value else {
+                Toast(text: "축제 목록 결과값을 찾을 수 없습니다.").show()
+                return
+            }
+            
+            switch statusCode {
+            case 200:
+                let jsonData = JSON(resultData)
+                self.setListFestival(with: jsonData)
+            default:
+                Toast(text: "축제 목록을 불러오는데 실패했습니다.").show()
+                break
+            }
+        }
+        
+    }
     
+    private func setListFestival(with data: JSON) {
+        let festivalDataArray = data.arrayValue
+        for festData in festivalDataArray {
+            festivals.append(Festival(festData))
+        }
+        festivalCollectionView.reloadData()
+    }
     
+    /// 네비게이션바 타이틀을 로고 이미지로 바꾼다.
+    func setNavigationTitleImage(named imgName: String) {
+        let imageView = UIImageView(image: UIImage(named: imgName))
+        imageView.contentMode = UIViewContentMode.scaleAspectFill
+        let titleView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 20))
+        imageView.frame = titleView.bounds
+        titleView.addSubview(imageView)
+        
+        self.navigationItem.titleView = titleView
+    }
 }
+
+
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
+        return festivals.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 120, height: 180)
     }
     
     // make a cell for each cell index path
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        // get a reference to our storyboard cell
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "univCell", for: indexPath as IndexPath) 
-        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "festivalCell", for: indexPath) as! FestivalCell
+        cell.festival = festivals[indexPath.item]
         
         return cell
     }   // 셀의 내용

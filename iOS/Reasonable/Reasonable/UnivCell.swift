@@ -17,7 +17,7 @@ class UnivCell: UICollectionViewCell {
         univLogoImgView.layer.cornerRadius = 8
         univLogoImgView.backgroundColor = .cyan
     }
-
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,4 +27,4 @@ class UnivCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    }
+}
