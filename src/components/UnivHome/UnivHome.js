@@ -16,9 +16,11 @@ import { UTC_TIME_ZONE } from '../../constants';
 class UnivHome extends React.Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
+    naver_url: PropTypes.string.isRequired,
     logo_url: PropTypes.string.isRequired,
     start_date: PropTypes.string.isRequired,
     end_date: PropTypes.string.isRequired,
+
   };
 
   render() {
@@ -28,7 +30,9 @@ class UnivHome extends React.Component {
     return (
       <div className={s.root}>
         <div className={s.container}>
-          <img src={this.props.logo_url} width="224" height="224" alt="logo" />
+          <a href={this.props.naver_url}>
+            <img src={this.props.logo_url} width="224" height="224" alt="logo" />
+          </a>
           <p className={s.name}>{this.props.name}</p>
           <p className={s.date}>{festival_period}</p>
         </div>

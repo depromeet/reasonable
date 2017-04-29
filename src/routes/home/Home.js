@@ -34,7 +34,6 @@ class Home extends React.Component {
                 start_date: festival.start_date,
                 end_date: festival.end_date,
               };
-              console.log(universityDetail);
               this.setState({ univList: [...this.state.univList, universityDetail] });
             },
           );
@@ -48,7 +47,7 @@ class Home extends React.Component {
     // state에 univList가 존재하는지 && 길이가 0 보다 큰지
     if (this.state.univList && this.state.univList.length > 0) {
       this.state.univList.forEach((univ) => {
-        rows.push(<UnivHome name={univ.name} logo_url={univ.image_link} start_date={univ.start_date} end_date={univ.end_date} key={univ.id}/>);
+        rows.push(<UnivHome name={univ.name} logo_url={univ.image_link} start_date={univ.start_date} end_date={univ.end_date} naver_url={univ.naver_link} key={univ.id}/>);
       });
     }
     return (
@@ -66,6 +65,7 @@ class Home extends React.Component {
           <div className={s.flex_container}>
             {rows}
           </div>
+          <button className={s.button_see_more}>see more</button>
         </div>
       </div>
     );

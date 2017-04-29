@@ -15,7 +15,6 @@
 
 .container {
   margin: 0 auto;
-  padding: 0 0 40px;
 }
 
 .module {
@@ -37,7 +36,7 @@
   text-transform: uppercase;
   margin: 0;
   position: absolute;
-  top: calc(50% - 120px);
+  top: calc(50% - 67px);
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -53,7 +52,7 @@
   text-transform: uppercase;
   margin: 0;
   position: absolute;
-  top: calc(50% - 30px);
+  top: calc(50% + 33px);
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -76,10 +75,27 @@
   margin: 0 auto;
 }
 
-.text_univ_list{
+.text_univ_list {
   text-align: center;
   font-size: 56px;
   font-weight: 200;
   margin-top: 120px;
   margin-bottom: 80px;
+}
+.button_see_more {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 200px;
+  border: none;
+	width: 240px;
+	height: 80px;
+	border-radius: 10px;
+	background-color: #222222;
+  color: #fff;
+
+	font-family: SpoqaHanSans;
+	font-size: 24px;
+	font-weight: 100;
+	line-height: 1.0;
+	text-align: center;
 }

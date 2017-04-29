@@ -20,9 +20,15 @@ class Footer extends React.Component {
       <div className={s.root}>
         <div className={s.container}>
           <div className={s.icons}>
-            <img src={facebookUrl} className={s.right_margin} width="30" height="30" alt="facebook" />
-            <img src={instagramUrl} className={s.right_margin} width="30" height="30" alt="instagram" />
-            <img src={twitterUrl} width="30" height="30" alt="twitter" />
+            <a href="http://facebook.com">
+              <img src={facebookUrl} className={s.right_margin} width="45" height="45" alt="facebook" />
+            </a>
+            <a href="http://instagram.com">
+              <img src={instagramUrl} className={s.right_margin} width="45" height="45" alt="instagram" />
+            </a>
+            <a href="http://twitter.com">
+              <img src={twitterUrl} width="45" height="45" alt="twitter" />
+            </a>
           </div>
           <p className={s.text}>Copyright © 2017 Reasonable of Depromeet</p>
         </div>
