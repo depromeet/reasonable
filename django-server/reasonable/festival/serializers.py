@@ -24,14 +24,11 @@ class FestivalSerializer(serializers.ModelSerializer):
 
 class FestivalListSerializer(serializers.ModelSerializer):
     max_pages = serializers.SerializerMethodField()
-    university_id = serializers.SerializerMethodField()
     university_name = serializers.SerializerMethodField()
 
     def get_max_pages(self, obj):
         return self.context['num_pages']
 
-    def get_university_id(self, obj):
-        return obj.university.id
 
     def get_university_name(self, obj):
         return obj.university.name
