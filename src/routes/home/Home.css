@@ -37,7 +37,7 @@
   text-transform: uppercase;
   margin: 0;
   position: absolute;
-  top: calc(50% - 33px);
+  top: calc(50% - 120px);
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -53,7 +53,33 @@
   text-transform: uppercase;
   margin: 0;
   position: absolute;
-  top: calc(50% + 33px + 26px);
+  top: calc(50% - 30px);
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+/* flex box */
+.flex_container {
+  /* We first create a flex layout context */
+  display: flex;
+  
+  /* Then we define the flow direction and if we allow the items to wrap 
+   * Remember this is the same as:
+   * flex-direction: row;
+   * flex-wrap: wrap;
+   */
+  flex-flow: row wrap;
+  
+  /* Then we define how is distributed the remaining space */
+  justify-content: space-around;
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+}
+
+.text_univ_list{
+  text-align: center;
+  font-size: 56px;
+  font-weight: 200;
+  margin-top: 120px;
+  margin-bottom: 80px;
 }

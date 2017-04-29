@@ -11,8 +11,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Home.css';
-import { getFestivalListByPageApiCall, } from '../../api/festivalApi';
-import { getUnivDetailApiCall, } from '../../api/univApi';
+import { getFestivalListByPageApiCall } from '../../api/festivalApi';
+import { getUnivDetailApiCall } from '../../api/univApi';
+import UnivHome from '../../components/UnivHome';
 
 class Home extends React.Component {
   state = {
@@ -27,7 +28,12 @@ class Home extends React.Component {
         });
         for (const festival of festivalList) {
           getUnivDetailApiCall(festival.university).then(
-            (universityDetail) => {
+            (univObject) => {
+              const universityDetail = {
+                ...univObject,
+                start_date: festival.start_date,
+                end_date: festival.end_date,
+              };
               console.log(universityDetail);
               this.setState({ univList: [...this.state.univList, universityDetail] });
             },
@@ -37,6 +43,14 @@ class Home extends React.Component {
     );
   }
   render() {
+    const rows = [];
+
+    // state에 univList가 존재하는지 && 길이가 0 보다 큰지
+    if (this.state.univList && this.state.univList.length > 0) {
+      this.state.univList.forEach((univ) => {
+        rows.push(<UnivHome name={univ.name} logo_url={univ.image_link} start_date={univ.start_date} end_date={univ.end_date} key={univ.id}/>);
+      });
+    }
     return (
       <div className={s.root}>
         <div className={s.container}>
@@ -47,6 +61,10 @@ class Home extends React.Component {
               <br />
               손쉽게 검색하고, 손쉽게 비교하세요.
             </p>
+          </div>
+          <h1 className={s.text_univ_list}>대학교 리스트</h1>
+          <div className={s.flex_container}>
+            {rows}
           </div>
         </div>
       </div>
