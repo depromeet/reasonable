@@ -17,11 +17,23 @@ class UniversityList(APIView):
     """
     Get University list
     """
-    def get(self, request):
-        university = University.objects.all()
-        serializer = UniversitySerializer(university)
+
+    def get(self, request, **kwargs):
+        print("!!!!!!!!!!")
+        object_list = University.objects.all()
+        paginator = Paginator(object_list, 12)
+        page = kwargs['page']
+        try:
+            universities = paginator.page(page)
+        except PageNotAnInteger:
+            universities = paginator.page(1)
+        except EmptyPage:
+            universities = paginator.page(paginator.num_pages)
+
+        serializer = UniversitySerializer(universities, many=True, context={'num_pages': paginator.num_pages})
         result = serializer.data
         return Response(result)
+
 
 @permission_classes((permissions.AllowAny,))
 class UniversityDetail(APIView):
@@ -39,6 +51,7 @@ class UniversityDetail(APIView):
     """
     Create new festival
     """
+
     def post(self, request):
         try:
             data = request.data

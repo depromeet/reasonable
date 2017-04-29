@@ -8,7 +8,8 @@ from .models import Festival, FestivalUnit
 from university.models import University
 from artist.models import Artist
 
-from .exceptions import RequestDataError, DateTimeFormatError, InvalidUniversityIdError, InvalidArtistIdError, InvalidFestiavlIdError
+from .exceptions import RequestDataError, DateTimeFormatError, InvalidUniversityIdError, InvalidArtistIdError, \
+    InvalidFestiavlIdError
 
 # date time parsing
 import datetime
@@ -53,6 +54,7 @@ class FestivalDetail(APIView):
     """
     Get Problem list by page
     """
+
     def get(self, request, **kwargs):
         id = kwargs['id']
         festival = Festival.objects.filter(id=id).first()
@@ -64,6 +66,7 @@ class FestivalDetail(APIView):
     """
     Create new festival
     """
+
     def post(self, request):
         try:
 
@@ -115,7 +118,8 @@ class FestivalDetail(APIView):
             university = University.objects.filter(id=university_id)
             if university is None:
                 raise InvalidUniversityIdError
-            festival = Festival(name=name, start_date=start_date, end_date=end_date, poster_link=poster_link, university_id=university_id)
+            festival = Festival(name=name, start_date=start_date, end_date=end_date, poster_link=poster_link,
+                                university_id=university_id)
             festival.save()
 
             serializer = FestivalSerializer(festival)
@@ -137,6 +141,7 @@ class FestivalUnitDetail(APIView):
     """
     Create new festival_unit
     """
+
     def post(self, request):
         try:
 
@@ -185,7 +190,8 @@ class FestivalUnitDetail(APIView):
             else:
                 raise DateTimeFormatError
 
-            festival_unit = FestivalUnit(artist_id=artist_id, festival_id=festival_id, start_date=start_date, end_date=end_date)
+            festival_unit = FestivalUnit(artist_id=artist_id, festival_id=festival_id, start_date=start_date,
+                                         end_date=end_date)
             festival_unit.save()
 
             serializer = FestivalUnitSerializer(festival_unit)

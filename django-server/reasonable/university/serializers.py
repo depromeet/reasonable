@@ -3,6 +3,11 @@ from .models import University
 
 
 class UniversitySerializer(serializers.ModelSerializer):
+    max_pages = serializers.SerializerMethodField()
+
+    def get_max_pages(self, obj):
+        return self.context['num_pages']
+
     class Meta:
         model = University
         # fields = ['start_date', 'end_date', 'artist']
