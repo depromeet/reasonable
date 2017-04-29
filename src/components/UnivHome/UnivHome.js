@@ -22,7 +22,7 @@ class UnivHome extends React.Component {
     return (
       <div className={s.root}>
         <div className={s.container}>
-          <img src={this.props.univ_logo_url} width="225" height="225" alt="logo" />
+          <img src={this.props.univ_logo_url} width="224" height="224" alt="logo" />
           <p>{this.props.univ_name}</p>
         </div>
       </div>

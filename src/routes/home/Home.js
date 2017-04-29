@@ -11,16 +11,31 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Home.css';
+import { getFestivalListByPageApiCall, } from '../../api/festivalApi';
+import { getUnivDetailApiCall, } from '../../api/univApi';
 
 class Home extends React.Component {
-  static propTypes = {
-    news: PropTypes.arrayOf(PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      link: PropTypes.string.isRequired,
-      content: PropTypes.string,
-    })).isRequired,
+  state = {
+    univList: {},
+    festivalList: {},
   };
-
+  componentDidMount() {
+    getFestivalListByPageApiCall(1).then(
+      (festivalList) => {
+        this.setState({
+          festivalList: festivalList,
+        });
+        for (const festival of festivalList) {
+          getUnivDetailApiCall(festival.university).then(
+            (universityDetail) => {
+              console.log(universityDetail);
+              this.setState({ univList: [...this.state.univList, universityDetail] });
+            },
+          );
+        }
+      },
+    );
+  }
   render() {
     return (
       <div className={s.root}>
