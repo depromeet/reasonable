@@ -30,4 +30,28 @@ public class University extends SugarRecord {
         this.extra = extra;
         this.img_link = img_link;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getExtra() {
+        return extra;
+    }
+
+    public void setExtra(String extra) {
+        this.extra = extra;
+    }
+
+    public String getImg_link() {
+        return img_link;
+    }
+
+    public void setImg_link(String img_link) {
+        this.img_link = img_link;
+    }
 }

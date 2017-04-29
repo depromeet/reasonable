@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/activity_horizontal_margin"
+    android:id="@+id/holder">
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/university_logo"
+        android:layout_margin="@dimen/standard_padding"
+        tools:src="@drawable/sample_logo"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/university_name"
+        android:layout_margin="@dimen/standard_padding"
+        android:layout_below="@id/university_logo"
+        tools:text="가천대학교"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerHorizontal="true"
+        android:id="@+id/festival_date"
+        android:layout_below="@id/university_name"
+        tools:text="05월 08일 ~ 11일"
+        />
+</RelativeLayout>
