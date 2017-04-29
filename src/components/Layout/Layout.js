@@ -17,10 +17,7 @@ import Feedback from '../Feedback';
 import Footer from '../Footer';
 
 class Layout extends React.Component {
-  static propTypes = {
-    children: PropTypes.node.isRequired,
-  };
-
+  
   render() {
     const customStyleObject = {
       zIndex: 998,
@@ -30,7 +27,6 @@ class Layout extends React.Component {
         <Sticky stickyStyle={customStyleObject}>
           <Header />
         </Sticky>
-        {this.props.children}
         <Footer />
       </StickyContainer>
     );
