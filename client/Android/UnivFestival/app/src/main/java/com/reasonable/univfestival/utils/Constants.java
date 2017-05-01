@@ -5,5 +5,5 @@ package com.reasonable.univfestival.utils;
  */
 
 public final class Constants {
-    public static final String BASE_URL = "https://api.github.com/";
+    public static final String BASE_URL = "http://54.218.197.65/";
 }

@@ -4,11 +4,14 @@
     android:layout_height="wrap_content">
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/header_imamgeview"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:src="@drawable/intro"
-        android:adjustViewBounds="true"/>
+
+        android:scaleType="centerCrop"
+        android:layout_height="240dp"
+        android:cropToPadding="false"
+        android:adjustViewBounds="true" />
 </RelativeLayout>

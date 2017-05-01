@@ -15,12 +15,10 @@ import rx.Observable;
 
 public interface UnivFestivalAPI {
     @GET("festival/list/{page}")
-    Observable<List<Festival>> listFestival(@Path("page") int pageCount);
+    Observable<List<Festival>> getListFestival(@Path("page") int pageCount);
 
-    @GET("university/")
-    Observable<List<University>> getUniversityList();
-
-
+    @GET("university/list/{page}")
+    Observable<List<University>> getUniversityList(@Path("page") int pageCount);
 
 
 }

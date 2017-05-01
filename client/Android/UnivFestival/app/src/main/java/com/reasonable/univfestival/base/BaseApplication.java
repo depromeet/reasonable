@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.facebook.stetho.Stetho;
 import com.facebook.stetho.okhttp3.StethoInterceptor;
+import com.google.gson.GsonBuilder;
 import com.orm.SugarContext;
 import com.reasonable.univfestival.BuildConfig;
 import com.reasonable.univfestival.R;
@@ -40,14 +41,14 @@ public class BaseApplication extends Application {
 
         if (BuildConfig.DEBUG) {
             Stetho.initializeWithDefaults(this);
-
             clientBuilder.addInterceptor(logging)
                     .addNetworkInterceptor(new StethoInterceptor());
         }
 
         Retrofit retrofit = new Retrofit.Builder()
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(
+                        new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss").create()))
                 .baseUrl(Constants.BASE_URL)
                 .client(clientBuilder.build())
                 .build();
