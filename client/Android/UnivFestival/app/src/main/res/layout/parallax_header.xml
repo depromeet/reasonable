@@ -9,9 +9,43 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:src="@drawable/intro"
-
         android:scaleType="centerCrop"
         android:layout_height="240dp"
         android:cropToPadding="false"
         android:adjustViewBounds="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/app_main_text"
+        android:textSize="@dimen/font_large"
+        android:maxLines="1"
+        android:textColor="@color/colorAccent"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:text="대학축제를 손쉽게 찾아보세요."/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/app_second_text"
+        android:textSize="@dimen/font_micro"
+        android:maxLines="1"
+        android:textColor="@color/colorAccent"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/app_main_text"
+        android:text="더이상 축제 정보 찾아 페이스북 헤메지마세요."/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/app_third_text"
+        android:textSize="@dimen/font_micro"
+        android:maxLines="1"
+        android:textColor="@color/colorAccent"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/app_second_text"
+        android:text="손쉽게 검색하고, 손쉽게 비교하세요."/>
+
+
 </RelativeLayout>

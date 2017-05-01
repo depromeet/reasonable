@@ -12,6 +12,7 @@ import com.reasonable.univfestival.model.University;
 
 import rx.Observable;
 import rx.Subscription;
+import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
 
@@ -50,7 +51,9 @@ public class MainPresenter implements Presenter<MainPresenter.View> {
         return Observable.range(1, Integer.MAX_VALUE - 1)
                 .concatMap(integer -> api
                         .getListFestival(integer)
+                        .observeOn(AndroidSchedulers.mainThread())
                         .doOnNext(list -> adapter.addAll(list))
+                        .observeOn(Schedulers.io())
                         .doOnNext(list -> {
                             for (Festival festival : list) {
                                 Log.d(TAG, "Festival: " + festival.getName());
