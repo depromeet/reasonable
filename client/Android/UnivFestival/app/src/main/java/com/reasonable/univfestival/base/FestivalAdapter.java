@@ -3,7 +3,6 @@ package com.reasonable.univfestival.base;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,10 +10,14 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.orm.query.Condition;
+import com.orm.query.Select;
 import com.poliveira.parallaxrecyclerview.ParallaxRecyclerAdapter;
 import com.reasonable.univfestival.R;
 import com.reasonable.univfestival.UniversityDetailFragment;
 import com.reasonable.univfestival.model.Festival;
+import com.reasonable.univfestival.model.University;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -23,6 +26,7 @@ import java.util.List;
  */
 
 public class FestivalAdapter extends ParallaxRecyclerAdapter<Festival> implements AdapterInterface<Festival>{
+    private static final String TAG = "FestivalAdapter";
     private Activity activity;
     private List<Festival> content;
 
@@ -41,9 +45,16 @@ public class FestivalAdapter extends ParallaxRecyclerAdapter<Festival> implement
         TextView univeristyTextView = (TextView) holder.findViewById(R.id.university_name);
         TextView festivalTextView = (TextView) holder.findViewById(R.id.festival_date);
 
-        // TODO: change to fetching URL imageview, use Glide
-        // universityLogo.setImageDrawable(); ((University) getData().get(i)).getImg_link();
-        universityLogo.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.sample_logo));
+        University university = Select.from(University.class)
+                .where(Condition.prop("EXTERNAL_ID").eq(String.valueOf(festival.getUniversity_id())))
+                .first();
+
+        Picasso.with(activity)
+                .load(university.getImage_link())
+                .resize(250, 250)
+                .centerCrop()
+                .into(universityLogo);
+
 
         univeristyTextView.setText(festival.getUniversity_name());
         festivalTextView.setText(festival.getName());

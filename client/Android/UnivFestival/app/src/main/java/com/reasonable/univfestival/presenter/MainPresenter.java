@@ -1,7 +1,5 @@
 package com.reasonable.univfestival.presenter;
 
-import android.util.Log;
-
 import com.orm.SugarRecord;
 import com.reasonable.univfestival.api.UnivFestivalAPI;
 import com.reasonable.univfestival.base.AdapterInterface;
@@ -11,7 +9,6 @@ import com.reasonable.univfestival.model.Festival;
 import com.reasonable.univfestival.model.University;
 
 import rx.Observable;
-import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
@@ -43,53 +40,42 @@ public class MainPresenter implements Presenter<MainPresenter.View> {
             subscriptions = new CompositeSubscription();
         }
 
-        subscriptions.add(getUnversityListSubscription());
-        subscriptions.add(getFestivalListSubscription(view));
+        subscriptions.add(getUnversityListSubscription()
+                        .concatWith(getFestivalListSubscription())
+                        .subscribeOn(Schedulers.io())
+                        .subscribe(onNext -> {
+                            // Do nothing
+                        }, view::handleError));
     }
 
-    private Subscription getFestivalListSubscription(View view) {
+    private Observable<Boolean> getFestivalListSubscription() {
         return Observable.range(1, Integer.MAX_VALUE - 1)
                 .concatMap(integer -> api
                         .getListFestival(integer)
                         .observeOn(AndroidSchedulers.mainThread())
-                        .doOnNext(list -> adapter.addAll(list))
                         .observeOn(Schedulers.io())
                         .doOnNext(list -> {
                             for (Festival festival : list) {
-                                Log.d(TAG, "Festival: " + festival.getName());
                                 SugarRecord.save(festival);
                             }
                         })
+                        .doOnNext(list -> adapter.addAll(list))
                         .map(result -> integer < result.get(0).getMax_pages()))
-                .takeWhile(shouldContinue -> shouldContinue)
-                .subscribeOn(Schedulers.io())
-                .subscribe(onNext -> {
-
-                }, onError -> {
-                    Log.e(TAG, "Error while fetching University List", onError);
-                });
+                .takeWhile(shouldContinue -> shouldContinue);
     }
 
-    public Subscription getUnversityListSubscription() {
+    public Observable<Boolean> getUnversityListSubscription() {
         return Observable.range(1, Integer.MAX_VALUE - 1)
                 .concatMap(integer -> api
                         .getUniversityList(integer)
                         .doOnNext(list -> {
                             for (University university : list) {
-                                Log.d(TAG, "University: " + university.getName());
                                 SugarRecord.save(university);
                             }
                         })
                         .map(result -> integer < result.get(0).getMax_pages())
                 )
-                .takeWhile(shouldContinue -> shouldContinue)
-                .subscribeOn(Schedulers.io())
-                .subscribe(onNext -> {
-
-                }, onError -> {
-                    Log.e(TAG, "Error while fetching University List", onError);
-                });
-
+                .takeWhile(shouldContinue -> shouldContinue);
     }
 
 

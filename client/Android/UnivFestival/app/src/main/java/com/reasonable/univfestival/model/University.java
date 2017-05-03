@@ -3,6 +3,7 @@ package com.reasonable.univfestival.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.orm.dsl.Table;
+import com.orm.dsl.Unique;
 
 /**
  * Created by jkimab on 2017. 4. 22..
@@ -13,6 +14,7 @@ public class University {
     private transient Long id;
 
     @SerializedName( "id" )
+    @Unique
     @Expose
     long externalId;
 

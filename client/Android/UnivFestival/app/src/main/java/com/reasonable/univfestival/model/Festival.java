@@ -3,6 +3,7 @@ package com.reasonable.univfestival.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.orm.dsl.Table;
+import com.orm.dsl.Unique;
 
 import java.util.Date;
 
@@ -25,6 +26,7 @@ public class Festival {
     private transient Long id;
 
     @SerializedName( "id" )
+    @Unique
     @Expose
     long externalId;
 

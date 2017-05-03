@@ -5,5 +5,5 @@ package com.reasonable.univfestival.base;
  */
 
 public interface BaseView {
-    void handleError(Exception e);
+    void handleError(Throwable e);
 }

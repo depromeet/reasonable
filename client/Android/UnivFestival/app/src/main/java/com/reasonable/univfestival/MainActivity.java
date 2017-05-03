@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Vie
     }
 
     @Override
-    public void handleError(Exception e) {
+    public void handleError(Throwable e) {
 
     }
 
