@@ -45,6 +45,8 @@ public class BaseApplication extends Application {
                     .addNetworkInterceptor(new StethoInterceptor());
         }
 
+
+
         Retrofit retrofit = new Retrofit.Builder()
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(

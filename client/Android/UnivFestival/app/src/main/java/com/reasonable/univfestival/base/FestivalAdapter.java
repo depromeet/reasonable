@@ -1,8 +1,7 @@
 package com.reasonable.univfestival.base;
 
 import android.app.Activity;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,13 +12,15 @@ import android.widget.TextView;
 import com.orm.query.Condition;
 import com.orm.query.Select;
 import com.poliveira.parallaxrecyclerview.ParallaxRecyclerAdapter;
+import com.reasonable.univfestival.FestivalDetailActivity;
 import com.reasonable.univfestival.R;
-import com.reasonable.univfestival.UniversityDetailFragment;
 import com.reasonable.univfestival.model.Festival;
 import com.reasonable.univfestival.model.University;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
+
+import static com.reasonable.univfestival.FestivalDetailActivity.UNIVERSITY_ID_KEY;
 
 /**
  * Created by jkimab on 2017. 4. 29..
@@ -55,15 +56,12 @@ public class FestivalAdapter extends ParallaxRecyclerAdapter<Festival> implement
                 .centerCrop()
                 .into(universityLogo);
 
-
         univeristyTextView.setText(festival.getUniversity_name());
         festivalTextView.setText(festival.getName());
         holder.setOnClickListener(v -> {
-            FragmentManager manager = activity.getFragmentManager();
-            FragmentTransaction fragmentTransaction = manager.beginTransaction();
-            fragmentTransaction.add(R.id.base_frame, UniversityDetailFragment.newInstance(festival.getExternalId()));
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
+            Intent intent = new Intent(activity, FestivalDetailActivity.class);
+            intent.putExtra(UNIVERSITY_ID_KEY, festival.getExternalId());
+            activity.startActivity(intent);
         });
     }
 

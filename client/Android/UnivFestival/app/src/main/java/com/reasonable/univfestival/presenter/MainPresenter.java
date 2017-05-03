@@ -59,7 +59,10 @@ public class MainPresenter implements Presenter<MainPresenter.View> {
                                 SugarRecord.save(festival);
                             }
                         })
+                        .doOnNext(list -> adapter.removeAll())
+                        .observeOn(AndroidSchedulers.mainThread())
                         .doOnNext(list -> adapter.addAll(list))
+                        .observeOn(Schedulers.io())
                         .map(result -> integer < result.get(0).getMax_pages()))
                 .takeWhile(shouldContinue -> shouldContinue);
     }
